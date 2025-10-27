@@ -1,6 +1,7 @@
 # ECS Network Analysis
 
 This repository contains the datasets, results, and reproducible workflows for our systems-level study of the **endocannabinoid system (ECS)**.  
+
 We integrate protein–protein and protein–chemical interactions into unified network models to uncover the organizational principles and resilience of ECS signaling.
 
 
