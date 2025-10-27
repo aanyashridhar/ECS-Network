@@ -1,0 +1,396 @@
+├── .DS_Store
+├── data
+│   ├── Edges
+│   │   ├── ecs_protein_to_chemical_edges.csv
+│   │   └── ecs_protein_to_protein_edges.csv
+│   └── Nodes
+│       ├── ecs_chemical_nodes.csv
+│       └── ecs_protein_nodes.csv
+├── folder_structure.txt
+├── manuscript
+└── results
+    ├── Combined Network
+    │   ├── Clustering Analysis
+    │   │   ├── Cluster Graphs
+    │   │   │   ├── ecs_combined_network_cluster_graph.png
+    │   │   │   └── ecs_combined_network_cluster_graph_with_outlines.png
+    │   │   └── Clustering Metrics
+    │   │       ├── ecs_combined_louvain_communities.csv
+    │   │       ├── ecs_combined_louvain_communities.xlsx
+    │   │       ├── ecs_combined_louvain_summary.csv
+    │   │       └── ecs_combined_louvain_summary.xlsx
+    │   ├── Network Metrics
+    │   │   ├── ecs_combined_betweenness_centrality.csv
+    │   │   ├── ecs_combined_closeness_centrality.csv
+    │   │   ├── ecs_combined_degree_centrality.csv
+    │   │   └── ecs_combined_eigenvector_centrality.csv
+    │   ├── Network Perturbation
+    │   │   ├── By Betweenness Centrality
+    │   │   │   ├── Remove Top 1
+    │   │   │   │   ├── Effect on BC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on CC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on DC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on EC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── ecs_combined_perturbation_top_1_betweenness_centrality.csv
+    │   │   │   │   └── ecs_combined_perturbation_top_1_betweenness_centrality_summary.csv
+    │   │   │   └── Remove Top 3
+    │   │   │       ├── Effect on BC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_combined_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on CC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_combined_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on DC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_combined_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on EC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │       ├── ecs_combined_perturbation_top_3_betweenness_centrality.csv
+    │   │   │       └── ecs_combined_perturbation_top_3_betweenness_centrality_summary.csv
+    │   │   ├── By Degree Centrality
+    │   │   │   ├── Remove Top 1
+    │   │   │   │   ├── Effect on BC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on CC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on DC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on EC
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_combined_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── ecs_combined_perturbation_top_1_degree_centrality.csv
+    │   │   │   │   └── ecs_combined_perturbation_top_1_degree_centrality_summary.csv
+    │   │   │   └── Remove Top 3
+    │   │   │       ├── Effect on BC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_combined_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on CC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_combined_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on DC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_combined_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on EC
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_combined_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_combined_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │       ├── ecs_combined_perturbation_top_3_degree_centrality.csv
+    │   │   │       └── ecs_combined_perturbation_top_3_degree_centrality_summary.csv
+    │   │   └── Z-Scores of _ Change
+    │   │       ├── ecs_combined_betweenness_centrality_zscores_table.csv
+    │   │       ├── ecs_combined_closeness_centrality_zscores_table.csv
+    │   │       ├── ecs_combined_degree_centrality_zscores_table.csv
+    │   │       └── ecs_combined_eigenvector_centrality_zscores_table.csv
+    │   └── Network Visualization
+    │       ├── No Text
+    │       │   ├── ecs_combined_network_no_text.png
+    │       │   └── ecs_combined_network_no_text_with_outlines.png
+    │       ├── Normal Sized Text
+    │       │   ├── ecs_combined_network.png
+    │       │   └── ecs_combined_network_with_outlines.png
+    │       ├── Numbered Text
+    │       │   ├── ecs_combined_network_number_text.png
+    │       │   └── ecs_combined_network_number_text_with_outlines.png
+    │       └── Small Text
+    │           ├── ecs_combined_network_smaller_text.png
+    │           └── ecs_combined_network_smaller_text_with_outlines.png
+    ├── P-C-Only Network
+    │   ├── Clustering Analysis
+    │   │   ├── Cluster Graphs
+    │   │   │   ├── ecs_protein_chemical_only_network_cluster_graph.png
+    │   │   │   └── ecs_protein_chemical_only_network_cluster_graph_with_outlines.png
+    │   │   └── Clustering Metrics
+    │   │       ├── ecs_protein_chemical_only_louvain_communities.csv
+    │   │       ├── ecs_protein_chemical_only_louvain_communities.xlsx
+    │   │       ├── ecs_protein_chemical_only_louvain_summary.csv
+    │   │       └── ecs_protein_chemical_only_louvain_summary.xlsx
+    │   ├── Network Metrics
+    │   │   ├── N_A - ecs_protein_chemical_only_betweenness_centrality.csv
+    │   │   ├── ecs_protein_chemical_only_closeness_centrality.csv
+    │   │   ├── ecs_protein_chemical_only_degree_centrality.csv
+    │   │   └── ecs_protein_chemical_only_eigenvector_centrality.csv
+    │   ├── Network Perturbation
+    │   │   ├── By Degree Centrality
+    │   │   │   ├── Remove Top 1
+    │   │   │   │   ├── Effect on CC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on DC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on EC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── N-A - Effect on BC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_degree_centrality.csv
+    │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_degree_centrality_summary.csv
+    │   │   │   └── Remove Top 3
+    │   │   │       ├── Effect on CC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on DC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on EC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │       ├── N-A - Effect on BC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── ecs_protein_chemical_only_perturbation_top_3_degree_centrality.csv
+    │   │   │       └── ecs_protein_chemical_only_perturbation_top_3_degree_centrality_summary.csv
+    │   │   ├── N-A - By Betweenness Centrality
+    │   │   │   ├── Remove Top 1
+    │   │   │   │   ├── Effect on BC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on CC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on DC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on EC
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality.csv
+    │   │   │   │   └── ecs_protein_chemical_only_perturbation_top_1_betweenness_centrality_summary.csv
+    │   │   │   └── Remove Top 3
+    │   │   │       ├── Effect on BC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on CC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on DC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on EC
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │       ├── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality.csv
+    │   │   │       └── ecs_protein_chemical_only_perturbation_top_3_betweenness_centrality_summary.csv
+    │   │   └── Z-Scores of _ Change
+    │   │       ├── N_A - ecs_protein_chemical_only_betweenness_centrality_zscores_table.csv
+    │   │       ├── ecs_protein_chemical_only_closeness_centrality_zscores_table.csv
+    │   │       ├── ecs_protein_chemical_only_degree_centrality_zscores_table.csv
+    │   │       └── ecs_protein_chemical_only_eigenvector_centrality_zscores_table.csv
+    │   └── Network Visualization
+    │       ├── No Text
+    │       │   ├── ecs_protein_chemical_only_network_no_text.png
+    │       │   └── ecs_protein_chemical_only_network_no_text_with_outlines.png
+    │       ├── Normal Sized Text
+    │       │   ├── ecs_protein_chemical_only_network.png
+    │       │   └── ecs_protein_chemical_only_network_with_outlines.png
+    │       ├── Numbered Text
+    │       │   ├── ecs_protein_chemical_only_network_number_text.png
+    │       │   └── ecs_protein_chemical_only_network_number_text_with_outlines.png
+    │       └── Small Text
+    │           ├── ecs_protein_chemical_only_network_smaller_text.png
+    │           └── ecs_protein_chemical_only_network_smaller_text_with_outlines.png
+    ├── P-P-Only Network
+    │   ├── Clustering Analysis
+    │   │   ├── Cluster Graphs
+    │   │   │   ├── ecs_protein_protein_only_network_cluster_graph.png
+    │   │   │   └── ecs_protein_protein_only_network_cluster_graph_with_outlines.png
+    │   │   └── Clustering Metrics
+    │   │       ├── ecs_protein_protein_only_louvain_communities.csv
+    │   │       ├── ecs_protein_protein_only_louvain_communities.xlsx
+    │   │       ├── ecs_protein_protein_only_louvain_summary.csv
+    │   │       └── ecs_protein_protein_only_louvain_summary.xlsx
+    │   ├── Network Metrics
+    │   │   ├── ecs_protein_protein_only_betweenness_centrality.csv
+    │   │   ├── ecs_protein_protein_only_closeness_centrality.csv
+    │   │   ├── ecs_protein_protein_only_degree_centrality.csv
+    │   │   └── ecs_protein_protein_only_eigenvector_centrality.csv
+    │   ├── Network Perturbation
+    │   │   ├── By Betweenness Centrality
+    │   │   │   ├── Remove Top 1
+    │   │   │   │   ├── Effect on BC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on CC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on DC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on EC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality.csv
+    │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_betweenness_centrality_summary.csv
+    │   │   │   └── Remove Top 3
+    │   │   │       ├── Effect on BC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on CC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on DC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on EC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │       ├── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality.csv
+    │   │   │       └── ecs_protein_protein_only_perturbation_top_3_betweenness_centrality_summary.csv
+    │   │   ├── By Degree Centrality
+    │   │   │   ├── Remove Top 1
+    │   │   │   │   ├── Effect on BC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_degree_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on CC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_degree_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on DC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_degree_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── Effect on EC
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_degree_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │   │   ├── ecs_protein_protein_only_perturbation_top_1_degree_centrality.csv
+    │   │   │   │   └── ecs_protein_protein_only_perturbation_top_1_degree_centrality_summary.csv
+    │   │   │   └── Remove Top 3
+    │   │   │       ├── Effect on BC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_degree_centrality_betweenness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on CC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_degree_centrality_closeness_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on DC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_degree_centrality_degree_centrality_percentchange_zscores_old.png
+    │   │   │       ├── Effect on EC
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores.csv
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores.png
+    │   │   │       │   ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores_grid.png
+    │   │   │       │   └── ecs_protein_protein_only_perturbation_top_3_degree_centrality_eigenvector_centrality_percentchange_zscores_old.png
+    │   │   │       ├── ecs_protein_protein_only_perturbation_top_3_degree_centrality.csv
+    │   │   │       └── ecs_protein_protein_only_perturbation_top_3_degree_centrality_summary.csv
+    │   │   └── Z-Scores of _ Change
+    │   │       ├── ecs_protein_protein_only_betweenness_centrality_zscores_table.csv
+    │   │       ├── ecs_protein_protein_only_closeness_centrality_zscores_table.csv
+    │   │       ├── ecs_protein_protein_only_degree_centrality_zscores_table.csv
+    │   │       └── ecs_protein_protein_only_eigenvector_centrality_zscores_table.csv
+    │   └── Network Visualization
+    │       ├── No Text
+    │       │   ├── ecs_protein_protein_only_network_no_text.png
+    │       │   └── ecs_protein_protein_only_network_no_text_with_outlines.png
+    │       ├── Normal Sized Text
+    │       │   ├── ecs_protein_protein_only_network.png
+    │       │   └── ecs_protein_protein_only_network_with_outlines.png
+    │       ├── Numbered Text
+    │       │   ├── ecs_protein_protein_only_network_number_text.png
+    │       │   └── ecs_protein_protein_only_network_number_text_with_outlines.png
+    │       └── Small Text
+    │           ├── ecs_protein_protein_only_network_smaller_text.png
+    │           └── ecs_protein_protein_only_network_smaller_text_with_outlines.png
+    └── ecs_network_perturbation_summary_master.csv

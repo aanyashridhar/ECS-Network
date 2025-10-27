@@ -1,0 +1,13 @@
+Network,Perturbation Metric,Removal Type,Original # Nodes,Original # Edges,Perturbed # Edges,% Change in Edges
+Protein-Protein Only,Degree Centrality,Top 1,40,92,77,16.3
+Protein-Protein Only,Degree Centrality,Top 3,40,92,55,40.22
+Protein-Protein Only,Betweenness Centrality,Top 1,40,92,79,14.13
+Protein-Protein Only,Betweenness Centrality,Top 3,40,92,65,29.35
+Protein-Chemical Only,Degree Centrality,Top 1,80,126,105,16.67
+Protein-Chemical Only,Degree Centrality,Top 3,80,126,73,42.06
+Protein-Chemical Only,Betweenness Centrality,Top 1,80,126,105,16.67
+Protein-Chemical Only,Betweenness Centrality,Top 3,80,126,82,34.92
+Combined,Degree Centrality,Top 1,80,218,184,15.6
+Combined,Degree Centrality,Top 3,80,218,141,35.32
+Combined,Betweenness Centrality,Top 1,80,218,184,15.6
+Combined,Betweenness Centrality,Top 3,80,218,153,29.82
