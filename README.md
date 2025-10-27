@@ -34,16 +34,18 @@ You can explore the full analysis pipeline in Google Colab here:
 
 
 ## Repository Structure
+```
 ecs_data/
 ├── data/
-│ ├── Edges/ # PPI & PCI edge lists
-│ └── Nodes/ # Protein & chemical node metadata
+│   ├── Edges/   # PPI & PCI edge lists
+│   └── Nodes/   # Protein & chemical node metadata
 ├── results/
-│ ├── Combined Network/ # Centrality, clustering, perturbations, visualizations
-│ ├── P-P-Only Network/ # Protein–protein analyses
-│ └── P-C-Only Network/ # Protein–chemical analyses
-├── manuscript/ # Placeholder (PDF will be added here)
-└── folder_structure.txt # Full directory tree
+│   ├── Combined Network/   # Centrality, clustering, perturbations, visualizations
+│   ├── P-P-Only Network/   # Protein–protein analyses
+│   └── P-C-Only Network/   # Protein–chemical analyses
+├── manuscript/   # Placeholder (PDF will be added here)
+└── folder_structure.txt   # Full directory tree
+```
 
 
 
@@ -52,7 +54,7 @@ ecs_data/
 ## Example Visualization
 *Combined protein–chemical ECS network*  
 
-![Combined ECS Network](ecs_data/results/Combined%20Network/Network%20Visualization/ecs_combined_network.png)
+![Combined ECS Network](results/Combined%20Network/Network%20Visualization/No%20Text/ecs_combined_network_no_text_with_outlines.png)
 
 
 
@@ -62,6 +64,7 @@ ecs_data/
 All dependencies are pre-installed in the provided Colab notebook.  
 For standalone runs, install:
 
+```bash
 pip install requests
 pip install numpy==1.24.4
 pip install rdkit-pypi
@@ -71,19 +74,21 @@ pip install python-louvain
 
 
 
-Collaborators
-Aanya Shridhar (A.S.) — Data curation, network construction, computational analyses, visualizations; analyzed and interpreted results; co-wrote the manuscript.
+## Collaborators
 
-Sugyan Mani Dixit (S.M.D.) — Conceived and supervised the project, designed the framework, co-analyzed results, and co-wrote the manuscript.
+**Aanya Shridhar (A.S.)** — Data curation, network construction, computational analyses, visualizations; analyzed and interpreted results; co-wrote the manuscript.  
 
-Reggie Gaudino (R.G.) — Provided insights on results, contributed manuscript edits, and supported the research through funding.
+**Sugyan Mani Dixit (S.M.D.)** — Conceived and supervised the project, designed the framework, co-analyzed results, and co-wrote the manuscript.  
 
-
-
+**Reggie Gaudino (R.G.)** — Provided insights on results, contributed manuscript edits, and supported the research through funding.  
 
 
-Citation
-If you use this repository, please cite the corresponding paper once published.
 
-BibTeX:
+
+
+## Citation
+
+If you use this repository, please cite the corresponding paper once published.  
+
+**BibTeX:**  
 [INSERT BIBTEX]
