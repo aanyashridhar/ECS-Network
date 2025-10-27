@@ -52,7 +52,7 @@ ecs_data/
 
 
 ## Example Visualization
-*Combined protein–chemical ECS network*  
+*Combined ECS network*  
 
 ![Combined ECS Network](results/Combined%20Network/Network%20Visualization/No%20Text/ecs_combined_network_no_text_with_outlines.png)
 
