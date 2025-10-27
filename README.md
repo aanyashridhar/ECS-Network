@@ -82,7 +82,7 @@ pip install python-louvain
 
 **Sugyan Mani Dixit (S.M.D.)** — Conceived and supervised the project, designed the framework, co-analyzed results, and co-wrote the manuscript.  
 
-**Reggie Gaudino (R.G.)** — Provided insights on results, contributed manuscript edits, and supported the research through funding.  
+**Reggie Gaudino (R.G.)** — Conceived the project, provided insights on results, contributed manuscript edits, and supported the research through funding.  
 
 
 
